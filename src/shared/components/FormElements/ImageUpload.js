@@ -37,7 +37,7 @@ const ImageUpload = (props) => {
     } else {
       SetIsValid(false);
       fileIsValid = false;
-      //Notice that due to the way react scops its state changing mechanism, we would've sent the old state, not yet updated of the isValid property if we chose to sent it to onInput below, so we create an auxiliary variable
+      //Notice that due to the way react scops its state changing mechanism, we would've sent the old state, not yet updated of the isValid property if we chose to sent it to onInput below, so we create an auxiliary variable!
     }
 
     props.onInput(props.id, pickedFile, fileIsValid);

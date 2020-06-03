@@ -4,6 +4,7 @@ import { useHttpClient } from "../../shared/hooks/http-hook";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 import ErrorModal from "../../shared/components/UIElements/ErrorModal";
 import PlaceList from "../../places/components/PlaceList";
+import MapSearch from "../../shared/components/MapSearch";
 
 import "./HomesShowCase.css";
 
@@ -37,6 +38,7 @@ const HomesShowCase = () => {
 
   return (
     <>
+      <MapSearch />
       <ErrorModal error={error} onClear={clearError} />
       {isLoading && (
         <div className="center">

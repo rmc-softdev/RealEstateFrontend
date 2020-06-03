@@ -26,6 +26,7 @@ const PlaceItem = ({
   bathrooms,
   area,
   price,
+  creatorId,
 }) => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const auth = useContext(AuthContext);
@@ -276,18 +277,24 @@ const PlaceItem = ({
                 </button>
               </Link>
             </div>
+            <div className="place-item__actions">
+              {auth.userId === creatorId && (
+                <Button to={`/places/${id}`}>Edit</Button>
+              )}
+              {auth.userId === creatorId && (
+                <Button danger onClick={showDeleteWarningHandler}>
+                  Delete
+                </Button>
+              )}
+            </div>
           </div>
           {/* <div className="place-item__actions">
-            <Button inverse onClick={openMapHandler}>
-              VIEW ON MAP
-            </Button>
-            {auth.userId === props.creatorId && (
-              <Button to={`/places/${props.id}`}>EDIT</Button>
+            {auth.userId === creatorId && (
+              <Button to={`/places/${id}`}>Edit</Button>
             )}
-
-            {auth.userId === props.creatorId && (
+            {auth.userId === creatorId && (
               <Button danger onClick={showDeleteWarningHandler}>
-                DELETE
+                Delete
               </Button>
             )}
           </div> */}

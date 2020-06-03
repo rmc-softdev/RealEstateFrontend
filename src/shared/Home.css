@@ -1,0 +1,181 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+
+.main__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-position: center center;
+  background-size: cover;
+  left: 0;
+  min-height: 86vh;
+  min-width: 100%;
+  overflow: hidden;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.3) 25%,
+    rgba(0, 0, 0, 0.15) 100%
+  );
+}
+
+.background-overlay {
+  background: url("https://d1gp0w414vjjuo.cloudfront.net/app/img/home/home-hero3.jpg");
+  position: relative;
+}
+
+.main__slogan__container {
+  position: absolute;
+  top: 30vh;
+  color: #fff;
+}
+
+.main__slogan__container__title {
+  box-sizing: border-box;
+  color: rgb(255, 255, 255);
+  display: block;
+  font-family: Roboto, sans-serif;
+  font-size: 72px;
+  font-stretch: 100%;
+  font-weight: 100;
+  height: 64px;
+  margin: 10px 0;
+  line-height: 64.8px;
+}
+
+.main__slogan__container__subtitle {
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  line-height: 32px;
+  font: 700 1.4em/1.4em "Open Sans", sans-serif;
+  font-size: 22px;
+}
+
+.sloganShowCase__container {
+  font-family: "Ivar Headline", "Ivar Headline Subset", "Times New Roman", serif;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #2a2a33;
+  font-size: 26px;
+  position: relative;
+  font-weight: 700;
+  margin-top: 10px;
+}
+
+.sloganShowCase__slogan__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.sloganShowCase__container p {
+  margin: 0;
+  padding: 0;
+  line-height: 40px;
+}
+.sloganShowCase__slogan__container__subtitle {
+  display: flex;
+  justify-content: center;
+}
+
+.SloganShowCase__container--separator {
+  margin: 35px 0;
+  margin-bottom: 50px;
+  background-color: #ffd237;
+  height: 2px;
+  width: 140px;
+}
+
+.submit__container {
+  height: 500px;
+}
+
+.submit__container__slogan--yellow {
+  color: #f9a11b;
+}
+
+.submit__container__slogan--blue {
+  color: #114a82;
+}
+
+.submit__container__slogan {
+  font-size: 36px;
+}
+.submit__container__slogan span {
+  margin: 0 5px;
+}
+
+.submit__container__slogan__subtitle {
+  font-size: 18px;
+  color: #515666;
+}
+
+.submit__container__slogan {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.submit__container__slogan h5,
+h3 {
+  margin: 10px 0;
+  padding: 0;
+  display: flex;
+}
+
+#pointer {
+  color: #f9a11b;
+  margin-right: 5px;
+}
+
+.submit__container__cards {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(3, 350px);
+  grid-column-gap: 30px;
+  justify-content: center;
+  color: #515666;
+  line-height: 24px;
+  margin-left: 200px;
+  align-items: baseline;
+}
+
+.submit__container__cards__imgCard {
+  border: 8px solid #fbba57;
+  border-radius: 50%;
+}
+
+.submit__container__cards__imgCard i {
+  color: #fff;
+}
+
+.submit__container__cards__imgCard--inner {
+  border-radius: 50%;
+  background: #f9a11b;
+  padding: 25px;
+  width: 98px;
+}
+
+.main__content__container {
+}
+
+.submit__container__cards_card {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: baseline;
+}
+
+.sign {
+  font-weight: 600;
+  margin: 10px 0;
+}
+
+.sign__text {
+  font-family: "Poppins", sans-serif;
+  line-height: 30px;
+}

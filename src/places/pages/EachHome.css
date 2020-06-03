@@ -1,0 +1,135 @@
+.home__container {
+  margin: 0 auto;
+  margin-top: 100px;
+  width: 1200px;
+}
+
+.home__container__firstRow {
+  display: flex;
+}
+
+.home__container__secondRow {
+  display: flex;
+}
+
+.left-col {
+  width: 750px;
+}
+
+.right-col {
+  width: 350px;
+}
+
+.home-details__title {
+  margin-bottom: 10px;
+}
+
+.home-details {
+  background-color: #4a525d;
+  color: #fff;
+  font-size: 21px;
+  padding-bottom: 70px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 70px;
+  font-weight: 500;
+  font-family: "Varela Round", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.items-container {
+  display: flex;
+  padding: 0;
+  margin-top: 20px;
+
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left-items {
+  padding: 0;
+}
+
+.right-items {
+  padding: 0;
+}
+
+.home-details__item {
+  display: flex;
+  align-items: center;
+  width: 160px;
+  font-size: 13px;
+  margin-bottom: 35px;
+}
+
+.home-details__item i {
+  margin-right: 10px;
+}
+
+.home-details__item p {
+  margin: 5px 0;
+}
+
+.home-details-dynamic {
+  font-size: 18px;
+}
+
+.home-description.left-col {
+  width: 750px;
+  min-height: 800px;
+  background-color: #fff;
+}
+
+.home-description.right-col {
+  background-color: #0dbae8;
+  min-height: 800px;
+}
+
+.description__container {
+  padding: 20px;
+}
+
+.description__text {
+  color: rgb(74, 82, 93);
+  font-family: "Varela Round", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  line-height: 25.7333px;
+  font-weight: 500;
+}
+
+.agent-avatar {
+  width: 120px;
+  height: 120px;
+}
+
+.agent-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 19px;
+  margin-bottom: 25px;
+}
+
+.agent-avatar img {
+  border-radius: 50%;
+  border: 3px solid #fff;
+}
+
+.home-description.right-col {
+  padding: 25px;
+}
+
+.agent-contact {
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.agent-contact i {
+  color: rgb(0, 128, 190);
+  margin-right: 8px;
+}
+
+.agent-contact p {
+  margin: 10px 0;
+}

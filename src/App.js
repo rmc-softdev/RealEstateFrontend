@@ -14,6 +14,8 @@ import {
 import MainNavigation from "./shared/components/Navigation/MainNavigation";
 import { AuthContext } from "./shared/context/auth-context";
 import { useAuth } from "./shared/hooks/auth-hook";
+import { useMap } from "./shared/hooks/map-hook";
+import { MapContext } from "./shared/context/googleMaps-context";
 import LoadingSpinner from "./shared/components/UIElements/LoadingSpinner";
 import Home from "./shared/Home";
 import HomesShowCase from "./places/pages/HomesShowCase";
@@ -27,6 +29,7 @@ const Auth = React.lazy(() => import("./user/pages/Auth"));
 
 const App = () => {
   const { token, login, logout, userId, userAvatar } = useAuth();
+  const { locations, getLocations } = useMap();
 
   let routes;
 
@@ -86,20 +89,27 @@ const App = () => {
         userAvatar: userAvatar,
       }}
     >
-      <Router>
-        <MainNavigation />
-        <main>
-          <Suspense
-            fallback={
-              <div className="center">
-                <LoadingSpinner />
-              </div>
-            }
-          >
-            {routes}
-          </Suspense>
-        </main>
-      </Router>
+      <MapContext.Provider
+        value={{
+          locations: locations,
+          getLocations: getLocations,
+        }}
+      >
+        <Router>
+          <MainNavigation />
+          <main>
+            <Suspense
+              fallback={
+                <div className="center">
+                  <LoadingSpinner />
+                </div>
+              }
+            >
+              {routes}
+            </Suspense>
+          </main>
+        </Router>
+      </MapContext.Provider>
     </AuthContext.Provider>
   );
 };

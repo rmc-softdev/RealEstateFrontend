@@ -1,32 +1,72 @@
-import React, { useContext } from "react";
+import React, { useEffect, useState, useContext } from "react";
 
 import Map from "../components/UIElements/Map";
 import "./MapSearch.css";
+import { MapContext } from "../context/googleMaps-context";
+import { useHttpClient } from "../hooks/http-hook";
 
-const MapSearch = () => {
+const MapSearch = (props) => {
+  const { isLoading, error, sendRequest, clearError } = useHttpClient();
+  const { locations, getLocations } = useContext(MapContext);
+  const [term, setTerm] = useState("");
+  const [coords, setCoords] = useState([]);
+  const [searchedPlaceUrl, setSearchedPlaceUrl] = useState();
+  const [searchedPlaceCoords, setSearchedPlaceCoords] = useState();
+  console.log(searchedPlaceCoords);
+
+  useEffect(() => {
+    const getCoordsForAddress = async (term) => {
+      const response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=$${term}
+      &key=${"AIzaSyAud-EQHWYBuy-53l0P01mu-fVLE-w6l9g"}
+    `);
+      if (!response) {
+        console.log("kd");
+      } else {
+        setSearchedPlaceUrl(response.url);
+      }
+    };
+    getCoordsForAddress(term);
+  }, [term]);
+
+  useEffect(() => {
+    const response = fetch(searchedPlaceUrl)
+      .then((data) => data.json())
+      .then((data) =>
+        setSearchedPlaceCoords(data?.results[0]?.geometry?.location)
+      );
+  }, [searchedPlaceUrl]);
+
   // get all coordinates from context store
   // and pass them as props to the Map
 
   //this coordinate should be the user's location, see Stephen for reference
-  const coordinates = {
-    lat: 40.7484405,
-    lng: -73.98566439999999,
-  };
 
-  const locations = [
-    ["Bondi Beach", 40.7484405, -73.78566439999999, 4],
-    ["Coogee Beach", 40.623036, -73.559052, 5],
-  ];
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const response = await sendRequest(
+          `${process.env.REACT_APP_BACKEND_URL}/users/agent/5ed55aad8c47ad1b2006d94a`
+        );
+        setCoords(response.user.locations);
+      } catch (err) {}
+    };
+
+    fetchUser();
+  }, []);
+
+  const handleChange = (e) => {
+    setTerm(e.target.value);
+  };
 
   return (
     <div className="mapsearch__container">
       <div className="map-container">
-        <Map center={coordinates} locations={locations} zoom={10} />
+        <Map center={searchedPlaceCoords} locations={coords} zoom={10} />
       </div>
       <div className="search__container">
         <form>
           <label htmlFor="search">Search a beatiful home</label>
-          <input id="search" />
+          <input id="search" type="text" onChange={handleChange} />
         </form>
       </div>
     </div>

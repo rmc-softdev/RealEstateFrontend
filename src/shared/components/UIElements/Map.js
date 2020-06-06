@@ -18,11 +18,14 @@ const Map = (props) => {
 
     if (locations) {
       locations.forEach((el, i) => {
+        let newarr = [];
+        let latlgn = [];
+        el.split(",").forEach((el) => newarr.push(el.split(":")[1]));
+        newarr.map((el) => {
+          latlgn.push(el.replace(/}/g, "").trim());
+        });
         const marker = new window.google.maps.Marker({
-          position: new window.google.maps.LatLng(
-            locations[i][1],
-            locations[i][2]
-          ),
+          position: new window.google.maps.LatLng(latlgn[0], latlgn[1]),
           map: map,
         });
       });

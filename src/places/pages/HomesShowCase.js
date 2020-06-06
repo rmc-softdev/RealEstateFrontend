@@ -23,22 +23,11 @@ const HomesShowCase = () => {
       } catch (err) {}
     };
     fetchAllHomes();
-
-    const fetchUsers = async () => {
-      try {
-        const responseData = await sendRequest(
-          process.env.REACT_APP_BACKEND_URL + "/users"
-        );
-
-        setLoadedUsers(responseData.users);
-      } catch (err) {}
-    };
-    fetchUsers();
   }, [sendRequest]);
 
   return (
     <>
-      <MapSearch />
+      <MapSearch homes={homes} />
       <ErrorModal error={error} onClear={clearError} />
       {isLoading && (
         <div className="center">

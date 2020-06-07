@@ -47,10 +47,12 @@ const EachHome = () => {
       <div className="home__container">
         <div className="home__container__firstRow">
           <div className="home-image left-col">
-            <img
-              src={`https://images.pexels.com/photos/3701434/pexels-photo-3701434.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260`}
-              style={{ width: "100%", height: "100%", objectFit: "cover" }}
-            />
+            {searchedPlace && (
+              <img
+                src={`${process.env.REACT_APP_ASSET_URL}/${searchedPlace.image}`}
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+              />
+            )}
           </div>
           <div className="home-details right-col">
             <div className="home-details__title">
@@ -221,7 +223,9 @@ const EachHome = () => {
             <div className="description__container">
               <h3 style={{ color: "#0dbae8" }}>Description</h3>
               <div className="description__text">
-                {searchedPlace && searchedPlace.description}
+                <p style={{ overflow: "auto" }}>
+                  {searchedPlace && searchedPlace.description}
+                </p>
               </div>
             </div>
             <div className="description__container location">
@@ -229,18 +233,33 @@ const EachHome = () => {
               {searchedPlace && searchedPlace.location.lat}
             </div>
           </div>
+
           <div className="home-description right-col">
             <div className="agent-info">
               <div className="agent-avatar">
-                <img
-                  src={`https://poltronanerd.com.br/wp-content/uploads/2020/05/Avatar-1280x720-1.jpg`}
-                  alt=""
-                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                />
+                {creatorData && (
+                  <img
+                    src={`${process.env.REACT_APP_ASSET_URL}/${creatorData.image}`}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                    }}
+                  />
+                )}
               </div>
               <div style={{ marginRight: "25px" }}>
-                <p style={{ color: "#fff" }}> Alice Brian </p>
-                <p style={{ color: "rgb(0, 128, 190)", fontSize: "15px" }}>
+                <p style={{ color: "#fff" }}>
+                  {" "}
+                  {creatorData && creatorData.name}{" "}
+                </p>
+                <p
+                  style={{
+                    color: "rgb(0, 128, 190)",
+                    fontSize: "15px",
+                    fontWeight: "700",
+                  }}
+                >
                   {" "}
                   Real Estate Agent
                 </p>

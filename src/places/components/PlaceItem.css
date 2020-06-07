@@ -110,7 +110,7 @@
 
 .place-item__image {
   width: 350px;
-  height: 310px !important;
+  height: 333px !important;
   position: relative;
   overflow: hidden;
 }
@@ -238,8 +238,52 @@
 
 /* Map animation */
 
-@media (min-width: 768px) {
+@media only screen and (max-width: 1200px) {
+  .place-item__info {
+    width: 350px;
+  }
   .place-item__image {
-    height: 20rem;
+    width: 350px;
+  }
+  .place-item__description {
+    width: 250px;
+  }
+  .place-item__description__price {
+    font-size: 25px;
+  }
+}
+
+@media only screen and (max-width: 980px) {
+  .place-item__content {
+    flex-direction: column;
+  }
+  .place-item__description {
+    width: 350px;
+  }
+  .place-item {
+    margin: 20px 0;
+    border: 1px solid #cac9c9;
+  }
+  .place-item:nth-child(odd) .place-item__info {
+    background-color: #252526;
+  }
+
+  .place-item:nth-child(odd) .col__item__vertical__highlight {
+    color: #e0dede;
+  }
+  .place-item:nth-child(odd) .place-item__map {
+    color: #e0dede;
+  }
+
+  .place-item:nth-child(odd) .col__item {
+    color: #b9b7b7;
+  }
+
+  .place-item:nth-child(odd) .place-item__info__title {
+    color: #fffefe;
+  }
+
+  .place-item:nth-child(even) .place-item__info {
+    background-color: #fff;
   }
 }

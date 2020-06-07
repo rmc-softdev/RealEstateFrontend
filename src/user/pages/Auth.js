@@ -44,6 +44,26 @@ const Auth = () => {
           ...formState.inputs,
           name: undefined,
           image: undefined,
+          mobile: {
+            value: "",
+            isValid: true,
+          },
+          office: {
+            value: "",
+            isValid: true,
+          },
+          location: {
+            value: "",
+            isValid: true,
+          },
+          fax: {
+            value: "",
+            isValid: true,
+          },
+          contactemail: {
+            value: "",
+            isValid: true,
+          },
         },
         formState.inputs.email.isValid && formState.inputs.password.isValid
       );
@@ -58,6 +78,26 @@ const Auth = () => {
           image: {
             value: null,
             isValid: false,
+          },
+          mobile: {
+            value: "",
+            isValid: true,
+          },
+          office: {
+            value: "",
+            isValid: true,
+          },
+          location: {
+            value: "",
+            isValid: true,
+          },
+          fax: {
+            value: "",
+            isValid: true,
+          },
+          contactemail: {
+            value: "",
+            isValid: true,
           },
         },
         false
@@ -173,8 +213,11 @@ const Auth = () => {
               <h4>
                 {" "}
                 The following sections are{" "}
-                <span style={{ color: "red" }}> optional </span> information.
-                <h5> You may skip those.</h5>
+                <span style={{ color: "red" }}> additional </span> information.
+                <h5 style={{ fontSize: "13px", fontWeight: "600" }}>
+                  {" "}
+                  You may fill those as you wish.
+                </h5>
               </h4>
             </div>
           )}
@@ -183,7 +226,8 @@ const Auth = () => {
               element="input"
               id="mobile"
               type="text"
-              validators={[[VALIDATOR_NONE()]]}
+              validators={[VALIDATOR_NONE()]}
+              errorText="Please enter something."
               label="Mobile Phone"
               onInput={inputHandler}
             />
@@ -195,7 +239,8 @@ const Auth = () => {
               type="text"
               label="Office Phone"
               onInput={inputHandler}
-              validators={[[VALIDATOR_NONE()]]}
+              validators={[VALIDATOR_NONE()]}
+              errorText="Please enter something."
             />
           )}
           {!isLoginMode && (
@@ -205,7 +250,8 @@ const Auth = () => {
               type="text"
               label="Office Fax"
               onInput={inputHandler}
-              validators={[[VALIDATOR_NONE()]]}
+              validators={[VALIDATOR_NONE()]}
+              errorText="Please enter something."
             />
           )}
           {!isLoginMode && (
@@ -216,6 +262,7 @@ const Auth = () => {
               label="Office Adress"
               onInput={inputHandler}
               validators={[[VALIDATOR_NONE()]]}
+              errorText="Please enter something."
             />
           )}
           {!isLoginMode && (
@@ -225,16 +272,40 @@ const Auth = () => {
               type="text"
               label="Contact Email"
               onInput={inputHandler}
-              validators={[[VALIDATOR_NONE()]]}
+              validators={[VALIDATOR_NONE()]}
+              errorText="Please enter something."
             />
           )}
           <Button type="submit" disabled={!formState.isValid}>
             {isLoginMode ? "Login" : "Sign Up"}
           </Button>
         </form>
-        <Button inverse onClick={switchModeHandler}>
-          Switch to {isLoginMode ? "Sign Up" : "Login"}
-        </Button>
+        <div
+          style={{
+            color: "#202124",
+            fontSize: "16px",
+            fontWeight: "500",
+            letterSpacing: ".1px",
+            lineHeight: "1.5",
+          }}
+        >
+          {isLoginMode ? (
+            <span> Don't have an account? </span>
+          ) : (
+            <span> Already have an account? </span>
+          )}
+          <span
+            inverse
+            onClick={switchModeHandler}
+            style={{ padding: "0", cursor: "pointer", color: "#1a73e8" }}
+          >
+            {isLoginMode ? (
+              <span style={{ fontWeight: "700" }}> Sign Up </span>
+            ) : (
+              <span style={{ fontWeight: "700" }}> Sign In </span>
+            )}
+          </span>
+        </div>
       </Card>
     </>
   );

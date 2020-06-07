@@ -52,7 +52,7 @@ const MapSearch = (props) => {
     };
 
     fetchUser();
-  }, []);
+  }, [searchedPlaceUrl]);
 
   const handleChange = (e) => {
     setTerm(e.target.value);
@@ -61,7 +61,7 @@ const MapSearch = (props) => {
   return (
     <div className="mapsearch__container">
       <div className="map-container">
-        <Map center={searchedPlaceCoords} locations={coords} zoom={10} />
+        <Map center={searchedPlaceCoords} locations={coords} zoom={16} />
       </div>
       <div className="search__container">
         <form>

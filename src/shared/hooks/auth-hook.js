@@ -20,12 +20,12 @@ export const useAuth = () => {
     // I'm simply making sure we know when the user logs in, so that we can log him out after one hour (please notice that I've set such expiration time in our backend for the token, so that it is indeed consistent with that)
     //
     setTokenExpirationDate(tokenExpirationDate);
-
     localStorage.setItem(
       "userData",
       JSON.stringify({
         userId: uid,
         token: token,
+        avatar: image,
         expiration: tokenExpirationDate.toISOString(),
       })
     );
@@ -60,7 +60,7 @@ export const useAuth = () => {
       login(
         storedData.userId,
         storedData.token,
-        userAvatar,
+        storedData.avatar,
         new Date(storedData.expiration)
       );
     }

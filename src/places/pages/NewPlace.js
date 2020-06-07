@@ -7,6 +7,7 @@ import {
   VALIDATOR_REQUIRE,
   VALIDATOR_MINLENGTH,
   VALIDATOR_NONE,
+  VALIDATOR_MAXLENGTH,
 } from "../../shared/util/validators";
 import { useForm } from "../../shared/hooks/form-hook";
 import "./PlaceForm.css";
@@ -110,40 +111,47 @@ const NewPlace = () => {
           id="price"
           element="input"
           label="Price (dollars/month)."
-          validators={[VALIDATOR_REQUIRE()]}
+          validators={[VALIDATOR_REQUIRE(), VALIDATOR_MAXLENGTH(10)]}
+          errorText="Please enter a valid price (at most 10 characters)."
           onInput={inputHandler}
         />
         <h4 style={{ textAlign: "center" }}>
           The following sections are{" "}
-          <span style={{ color: "red" }}> optional </span> information.
-          <h5 style={{ textAlign: "center" }}> You may skip those.</h5>
+          <span style={{ color: "red" }}> additional </span> information.
+          <h5 style={{ textAlign: "center" }}>
+            You may fill those as you wish.
+          </h5>
         </h4>
         <Input
           id="area"
           element="input"
           label="What's the area of your property?"
-          validators={[VALIDATOR_NONE()]}
+          validators={[VALIDATOR_NONE(), VALIDATOR_MAXLENGTH(10)]}
+          errorText="Please enter a valid area (at most 10 characters)."
           onInput={inputHandler}
         />
         <Input
           id="bedrooms"
           element="input"
           label="How many bedrooms there are in your property?"
-          validators={[VALIDATOR_NONE()]}
+          validators={[VALIDATOR_NONE(), VALIDATOR_MAXLENGTH(2)]}
+          errorText="Please enter a valid area (at most 2 characters)."
           onInput={inputHandler}
         />
         <Input
           id="garages"
           element="input"
           label="How many garages?"
-          validators={[VALIDATOR_NONE()]}
+          validators={[VALIDATOR_NONE(), VALIDATOR_MAXLENGTH(2)]}
+          errorText="Please enter a valid area (at most 2 characters)."
           onInput={inputHandler}
         />
         <Input
           id="bathrooms"
           element="input"
           label="How many bathrooms?"
-          validators={[VALIDATOR_NONE()]}
+          validators={[VALIDATOR_NONE(), VALIDATOR_MAXLENGTH(2)]}
+          errorText="Please enter a valid area (at most 2 characters)."
           onInput={inputHandler}
         />
         <Input
@@ -151,6 +159,7 @@ const NewPlace = () => {
           element="input"
           label="What's the type of your propety (for example, single family)?"
           validators={[VALIDATOR_NONE()]}
+          errorText='Please enter something. For example, "Single Family".'
           onInput={inputHandler}
         />
         <Input
@@ -158,11 +167,12 @@ const NewPlace = () => {
           element="input"
           label="What's the status of your property? Is it for rent or sale?"
           validators={[VALIDATOR_NONE()]}
+          errorText='Please enter something. For example, "For Sale".'
           onInput={inputHandler}
         />
 
         <Button type="submit" disabled={!formState.isValid}>
-          ADD PLACE
+          Post a new place
         </Button>
       </form>
     </React.Fragment>

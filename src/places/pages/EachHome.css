@@ -6,10 +6,12 @@
 
 .home__container__firstRow {
   display: flex;
+  justify-content: center;
 }
 
 .home__container__secondRow {
   display: flex;
+  justify-content: center;
 }
 
 .left-col {
@@ -132,4 +134,36 @@
 
 .agent-contact p {
   margin: 10px 0;
+}
+
+@media only screen and (max-width: 1200px) {
+  .home-image.left-col {
+    width: 450px;
+  }
+  .home-description.left-col {
+    width: 450px;
+  }
+}
+@media only screen and (max-width: 1050px) {
+  .home__container__firstRow {
+    flex-direction: column;
+    align-items: center;
+  }
+  .home__container__secondRow {
+    flex-direction: column;
+    align-items: center;
+  }
+  .home-details.right-col {
+    width: 450px;
+    padding-bottom: 0;
+    margin-right: 0;
+  }
+  .home-description.right-col {
+    width: 450px;
+    margin-right: 0;
+    min-height: auto;
+  }
+  .home-description.left-col {
+    min-height: auto;
+  }
 }

@@ -8,6 +8,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .nav-links li {
@@ -59,7 +60,6 @@
   }
 
   .nav-links button {
-    border: 1px solid white;
     color: #000;
     background: transparent;
   }
@@ -67,5 +67,11 @@
   .nav-links button:hover,
   .nav-links button:active {
     color: red;
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  .nav-links {
+    flex-wrap: wrap;
   }
 }

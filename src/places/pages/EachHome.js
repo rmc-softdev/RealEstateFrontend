@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import PlaceList from "../components/PlaceList";
 import ErrorModal from "../../shared/components/UIElements/ErrorModal";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
+import Map from "../../shared/components/UIElements/Map";
 
 import { useHttpClient } from "../../shared/hooks/http-hook";
 
@@ -230,7 +231,11 @@ const EachHome = () => {
             </div>
             <div className="description__container location">
               <h3 style={{ color: "#0dbae8" }}> Location </h3>
-              {searchedPlace && searchedPlace.location.lat}
+              <div className="map-container">
+                {searchedPlace && (
+                  <Map center={searchedPlace.location} zoom={16} />
+                )}
+              </div>
             </div>
           </div>
 

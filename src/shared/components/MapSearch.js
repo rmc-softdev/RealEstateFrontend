@@ -12,7 +12,6 @@ const MapSearch = (props) => {
   const [coords, setCoords] = useState([]);
   const [searchedPlaceUrl, setSearchedPlaceUrl] = useState();
   const [searchedPlaceCoords, setSearchedPlaceCoords] = useState();
-  console.log(searchedPlaceCoords);
 
   useEffect(() => {
     const getCoordsForAddress = async (term) => {
@@ -20,7 +19,6 @@ const MapSearch = (props) => {
       &key=${"AIzaSyAud-EQHWYBuy-53l0P01mu-fVLE-w6l9g"}
     `);
       if (!response) {
-        console.log("kd");
       } else {
         setSearchedPlaceUrl(response.url);
       }

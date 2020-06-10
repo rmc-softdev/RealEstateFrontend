@@ -23,7 +23,7 @@ const UserItem = (props) => {
             <h2 style={{ color: "#bd7200" }}>{props.name}</h2>
             <h3>
               {props.placeCount}{" "}
-              {props.placeCount === 1 ? "Property" : "Properties"}
+              {props.placeCount === 1 ? "Property listed" : "Properties listed"}
             </h3>
           </div>
         </Link>

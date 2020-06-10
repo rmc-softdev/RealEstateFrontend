@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import "./Home.css";
 
@@ -9,7 +10,11 @@ const Home = () => {
         <div className="main__container">
           <div className="main__slogan__container">
             <p className="main__slogan__container__title">
-              Find your next home
+              Find your next{" "}
+              <Link to="/homes/new" style={{ color: "#000" }}>
+                {" "}
+                Home{" "}
+              </Link>
             </p>
             <p className="main__slogan__container__subtitle">
               We’ll help you find a place you’ll love.
@@ -23,8 +28,15 @@ const Home = () => {
             <p className="sloganShowCase__slogan__container__title">
               We have the most listings and constant updates.
             </p>
-            <p className="sloganShowCase__slogan__container__subtitle">
-              So you’ll never miss out.{" "}
+            <p
+              className="sloganShowCase__slogan__container__subtitle"
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
+            >
+              So you’ll never miss out.
             </p>
             <div className="SloganShowCase__container--separator"></div>
           </div>

@@ -21,11 +21,6 @@ const NavLinks = (props) => {
   return (
     <ul className="nav-links" style={{ position: "relative" }}>
       <li onClick={props.closeDrawerHandler}>
-        <NavLink to="/agents" exact>
-          Agent Finder
-        </NavLink>
-      </li>
-      <li onClick={props.closeDrawerHandler}>
         <NavLink to="/homes/new" exact>
           New Homes
         </NavLink>
@@ -45,6 +40,11 @@ const NavLinks = (props) => {
           <NavLink to="/auth">Submit property</NavLink>
         </li>
       )}
+      <li onClick={props.closeDrawerHandler}>
+        <NavLink to="/agents" exact>
+          Agent Finder
+        </NavLink>
+      </li>
       {auth.isLoggedIn && (
         <li onClick={props.closeDrawerHandler}>
           <button onClick={auth.logout}> Logout </button>

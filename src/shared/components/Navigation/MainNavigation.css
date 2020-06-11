@@ -14,7 +14,6 @@
   display: block;
   width: 3rem;
   height: 2.5px;
-  background: white;
 }
 
 .main-navigation__title {
@@ -34,6 +33,12 @@
 
 .main-navigation__drawer-nav {
   height: 100%;
+}
+
+.main-navigation__title .nav--scroll--active {
+  color: #fff;
+  background-color: transparent;
+  transition: all 1.5s ease-in;
 }
 
 @media (min-width: 768px) {

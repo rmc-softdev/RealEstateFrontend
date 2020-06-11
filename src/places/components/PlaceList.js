@@ -16,23 +16,21 @@ const PlaceList = (props) => {
 
   useEffect(() => {
     setLastIndex(startingIndex + 10);
-
-    return () => {
-      if (props.items.slice(startingIndex, lastIndex).length === 0) {
-        return (
-          <div className="place-list center">
-            <Card>
-              <h2 style={{ marginBottom: "30px" }}>
-                Sorry, no more rentals found. If you are an agent, you might
-                want to consider sharing one with us.
-              </h2>
-              <Button to="/places/new">Share Place</Button>
-            </Card>
-          </div>
-        );
-      }
-    };
   }, [startingIndex]);
+
+  // if (props.items.slice(startingIndex, lastIndex).length === 0) {
+  //   return (
+  //     <div className="place-list center">
+  //       <Card>
+  //         <h2 style={{ marginBottom: "30px" }}>
+  //           Sorry, no more rentals found. If you are an agent, you might want to
+  //           consider sharing one with us.
+  //         </h2>
+  //         <Button to="/places/new">Share Place</Button>
+  //       </Card>
+  //     </div>
+  //   );
+  // }
 
   const handleHowMany = (currentPage) => {
     setCurrentPage(currentPage);

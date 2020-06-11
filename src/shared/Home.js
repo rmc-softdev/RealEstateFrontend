@@ -11,7 +11,7 @@ const Home = () => {
           <div className="main__slogan__container">
             <p className="main__slogan__container__title">
               Find your next{" "}
-              <Link to="/homes/new" style={{ color: "#000" }}>
+              <Link to="/homes/new" style={{ color: "#fff" }}>
                 {" "}
                 Home{" "}
               </Link>

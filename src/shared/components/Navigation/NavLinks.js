@@ -21,30 +21,53 @@ const NavLinks = (props) => {
   return (
     <ul className="nav-links" style={{ position: "relative" }}>
       <li onClick={props.closeDrawerHandler}>
-        <NavLink to="/homes/new" exact>
+        <NavLink
+          to="/homes/new"
+          exact
+          className={`${props.transparency ? "nav--scroll--active" : ""}`}
+        >
           New Homes
         </NavLink>
       </li>
       {auth.isLoggedIn && (
         <li onClick={props.closeDrawerHandler}>
-          <NavLink to={`/${auth.userId}/places`}>Manage Rentals</NavLink>
+          <NavLink
+            className={`${props.transparency ? "nav--scroll--active" : ""}`}
+            to={`/${auth.userId}/places`}
+          >
+            Manage Rentals
+          </NavLink>
         </li>
       )}
       {auth.isLoggedIn && (
         <li onClick={props.closeDrawerHandler}>
-          <NavLink to="/places/new">Post Rentals</NavLink>
-        </li>
-      )}
-      {!auth.isLoggedIn && (
-        <li onClick={props.closeDrawerHandler}>
-          <NavLink to="/auth">Submit property</NavLink>
+          <NavLink
+            className={`${props.transparency ? "nav--scroll--active" : ""}`}
+            to="/places/new"
+          >
+            Post Rentals
+          </NavLink>
         </li>
       )}
       <li onClick={props.closeDrawerHandler}>
-        <NavLink to="/agents" exact>
-          Agent Finder
+        <NavLink
+          className={`${props.transparency ? "nav--scroll--active" : ""}`}
+          to="/agents"
+          exact
+        >
+          Find an Agent
         </NavLink>
       </li>
+      {!auth.isLoggedIn && (
+        <li onClick={props.closeDrawerHandler}>
+          <NavLink
+            className={`${props.transparency ? "nav--scroll--active" : ""}`}
+            to="/auth"
+          >
+            Submit property
+          </NavLink>
+        </li>
+      )}
       {auth.isLoggedIn && (
         <li onClick={props.closeDrawerHandler}>
           <button onClick={auth.logout}> Logout </button>

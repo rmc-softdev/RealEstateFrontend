@@ -28,6 +28,12 @@
   border-color: #292929;
 }
 
+.nav-links a:hover .nav--scroll--active,
+.nav-links a:active .nav--scroll--active,
+.nav-links a.active .nav--scroll--active {
+  border-color: red;
+}
+
 .nav-links button {
   cursor: pointer;
   background: transparent;
@@ -57,6 +63,12 @@
   .nav-links a {
     color: #000;
     text-decoration: none;
+  }
+
+  .nav-links .nav--scroll--active {
+    color: #fff;
+    border: none;
+    font-size: 20px;
   }
 
   .nav-links button {

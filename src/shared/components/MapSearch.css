@@ -6,3 +6,34 @@
   align-items: center;
   height: 350px;
 }
+
+.search__container {
+  position: relative;
+}
+
+.fas.fa-search-location {
+  position: absolute;
+  top: 9px;
+  right: 10px;
+  font-size: 20px;
+  color: rgb(176, 179, 182);
+}
+
+#search {
+  border-radius: 15px;
+  border: 1px solid rgb(176, 179, 182);
+  width: 300px;
+  padding: 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+#search:focus {
+  width: 450px;
+  transition: all 0.3s ease-in-out;
+  border-color: blue;
+}
+
+#search:focus .fas.fa-search-location {
+  /* translate and change color */
+  color: #000;
+}

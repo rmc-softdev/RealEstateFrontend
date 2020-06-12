@@ -27,7 +27,7 @@ const HomesShowCase = () => {
 
   return (
     <>
-      <MapSearch homes={homes} />
+      {homes && <MapSearch homes={homes} />}
       <ErrorModal error={error} onClear={clearError} />
       {isLoading && (
         <div className="center">

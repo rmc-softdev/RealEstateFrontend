@@ -38,7 +38,7 @@
 .main-navigation__title .nav--scroll--active {
   color: #fff;
   background-color: transparent;
-  transition: all 1.5s ease-in;
+  transition: all 1s ease-in;
 }
 
 @media (min-width: 768px) {

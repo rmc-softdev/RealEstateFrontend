@@ -4,6 +4,7 @@ import Map from "../components/UIElements/Map";
 import "./MapSearch.css";
 import { MapContext } from "../context/googleMaps-context";
 import { useHttpClient } from "../hooks/http-hook";
+import GoogleMapsSearch from "./UIElements/GoogleMapsSearch.js";
 
 const MapSearch = (props) => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -12,6 +13,9 @@ const MapSearch = (props) => {
   const [coords, setCoords] = useState([]);
   const [searchedPlaceUrl, setSearchedPlaceUrl] = useState();
   const [searchedPlaceCoords, setSearchedPlaceCoords] = useState();
+  const [coordinatesInDB, setCoordinatesInDB] = useState([]);
+  const [visitorCoordsLng, setVisitorCoordsLat] = useState();
+  const [visitorCoordsLat, setVisitorCoordsLng] = useState();
 
   useEffect(() => {
     const getCoordsForAddress = async (term) => {
@@ -24,8 +28,15 @@ const MapSearch = (props) => {
       }
     };
     getCoordsForAddress(term);
+    const getVisitorCoords = async () => {
+      try {
+        window.navigator.geolocation.getCurrentPosition((position) => {
+          setVisitorCoordsLat(position.coords.latitude);
+          setVisitorCoordsLng(position.coords.longitude);
+        });
+      } catch (err) {}
+    };
   }, [term]);
-
   useEffect(() => {
     const response = fetch(searchedPlaceUrl)
       .then((data) => data.json())
@@ -34,37 +45,62 @@ const MapSearch = (props) => {
       );
   }, [searchedPlaceUrl]);
 
-  // get all coordinates from context store
-  // and pass them as props to the Map
-
-  //this coordinate should be the user's location, see Stephen for reference
-
   useEffect(() => {
-    const fetchUser = async () => {
-      try {
-        const response = await sendRequest(
-          `${process.env.REACT_APP_BACKEND_URL}/users/agent/5ed55aad8c47ad1b2006d94a`
-        );
-        setCoords(response.user.locations);
-      } catch (err) {}
+    const getCoordsInDB = () => {
+      props.homes.forEach((el) =>
+        setCoordinatesInDB((prevState) => [...prevState, el.location])
+      );
     };
-
-    fetchUser();
-  }, [searchedPlaceUrl]);
+    getCoordsInDB();
+  }, [props.homes]);
 
   const handleChange = (e) => {
     setTerm(e.target.value);
   };
 
+  const overView = {
+    lat: visitorCoordsLat ? visitorCoordsLat : 39.84031840000001,
+    lng: visitorCoordsLng ? visitorCoordsLng : -86.12785629999999,
+  };
+
   return (
     <div className="mapsearch__container">
       <div className="map-container">
-        <Map center={searchedPlaceCoords} locations={coords} zoom={16} />
+        <Map
+          center={searchedPlaceCoords ? searchedPlaceCoords : overView}
+          locations={coordinatesInDB}
+          zoom={searchedPlaceCoords ? 16 : 5}
+        />
       </div>
       <div className="search__container">
-        <form>
-          <label htmlFor="search">Search a beatiful home</label>
-          <input id="search" type="text" onChange={handleChange} />
+        <form
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            marginTop: "80px",
+            alignItems: "center",
+          }}
+        >
+          <label
+            htmlFor="search"
+            style={{
+              textAlign: "center",
+              marginBottom: "10px",
+              fontWeight: "500",
+            }}
+          >
+            We have rentals all around the world. Let us find the perfect one
+            for you.
+          </label>
+          <div className="search__container">
+            <input
+              id="search"
+              placeholder="Find our rentals nearest you..."
+              type="text"
+              onChange={handleChange}
+            />
+            <i class="fas fa-search-location" />
+          </div>
         </form>
       </div>
     </div>

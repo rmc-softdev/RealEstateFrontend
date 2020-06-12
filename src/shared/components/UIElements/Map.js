@@ -14,22 +14,30 @@ const Map = (props) => {
       zoom: zoom,
     });
 
-    !locations && new window.google.maps.Marker({ position: center, map: map });
-
+    new window.google.maps.Marker({ position: center, map: map });
     if (locations) {
-      locations.forEach((el, i) => {
-        let newarr = [];
-        let latlgn = [];
-        el.split(",").forEach((el) => newarr.push(el.split(":")[1]));
-        newarr.map((el) => {
-          latlgn.push(el.replace(/}/g, "").trim());
-        });
+      locations.forEach((el) => {
         const marker = new window.google.maps.Marker({
-          position: new window.google.maps.LatLng(latlgn[0], latlgn[1]),
+          position: new window.google.maps.LatLng(el.lat, el.lng),
           map: map,
         });
       });
     }
+
+    // if (locations) {
+    //   locations.forEach((el, i) => {
+    //     let newarr = [];
+    //     let latlgn = [];
+    //     el.split(",").forEach((el) => newarr.push(el.split(":")[1]));
+    //     newarr.map((el) => {
+    //       latlgn.push(el.replace(/}/g, "").trim());
+    //     });
+    //     const marker = new window.google.maps.Marker({
+    //       position: new window.google.maps.LatLng(latlgn[0], latlgn[1]),
+    //       map: map,
+    //     });
+    //   });
+    // }
   }, [center, zoom, locations]);
 
   return (

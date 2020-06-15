@@ -125,7 +125,7 @@ const NewPlace = () => {
         <Input
           id="area"
           element="input"
-          label="What's the area of your property?"
+          label="What's the area of your property (m²)?"
           validators={[VALIDATOR_NONE(), VALIDATOR_MAXLENGTH(10)]}
           errorText="Please enter a valid area (at most 10 characters)."
           onInput={inputHandler}

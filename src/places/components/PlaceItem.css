@@ -141,12 +141,10 @@
   margin: 0.3rem;
   padding: 0.3rem 0.4rem;
   text-align: center;
-  width: 100px;
 }
 .place-item__actions {
   margin-top: 20px;
   display: flex;
-  flex-direction: column;
 }
 
 .place-item__description {
@@ -234,6 +232,9 @@
 .map-container {
   height: 15rem;
   width: 100%;
+}
+.map-container.main {
+  height: 350px;
 }
 
 /* Map animation */

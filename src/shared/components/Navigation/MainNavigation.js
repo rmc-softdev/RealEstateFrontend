@@ -13,15 +13,13 @@ const MainNavigation = (props) => {
   const [drawerIsOpen, setDrawerIsOpen] = useState(false);
   let match = useRouteMatch("/");
 
-  useEffect(() => {
-    window.onscroll = function () {
-      if (window.pageYOffset >= 1) {
-        setTransparency(false);
-      } else {
-        setTransparency(true);
-      }
-    };
-  }, [match]);
+  window.onscroll = () => {
+    if (window.pageYOffset >= 1) {
+      setTransparency(false);
+    } else {
+      setTransparency(true);
+    }
+  };
 
   useEffect(() => {
     if (!match.isExact) {

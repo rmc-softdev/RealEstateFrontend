@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 350px;
+  height: 550px;
 }
 
 .search__container {
@@ -16,21 +16,22 @@
   top: 9px;
   right: 10px;
   font-size: 20px;
-  color: rgb(176, 179, 182);
+  /* color: rgb(176, 179, 182); */
+  color: #000;
 }
 
 #search {
   border-radius: 15px;
   border: 1px solid rgb(176, 179, 182);
-  width: 300px;
+  width: 400px;
   padding: 10px;
   transition: all 0.3s ease-in-out;
 }
 
 #search:focus {
-  width: 450px;
+  width: 600px;
   transition: all 0.3s ease-in-out;
-  border-color: blue;
+  border-color: #040404;
 }
 
 #search:focus .fas.fa-search-location {

@@ -69,8 +69,17 @@ const NavLinks = (props) => {
         </li>
       )}
       {auth.isLoggedIn && (
-        <li onClick={props.closeDrawerHandler}>
-          <button onClick={auth.logout}> Logout </button>
+        <li
+          className={`${props.transparency ? "nav--scroll--active" : ""}`}
+          onClick={props.closeDrawerHandler}
+        >
+          <button
+            className={`${props.transparency ? "nav--scroll--active" : ""}`}
+            onClick={auth.logout}
+          >
+            {" "}
+            Logout{" "}
+          </button>
         </li>
       )}
       {auth.isLoggedIn && (

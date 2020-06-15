@@ -111,8 +111,12 @@ const PlaceItem = ({
             <h2 className="place-item__info__title">{title}</h2>
             <h3 className="place-item__info__address">
               <div>{address}</div>
-              <span className="place-item__map" onClick={openMapHandler}>
-                View on Map
+              <span
+                className="place-item__map"
+                onClick={openMapHandler}
+                style={{ display: "flex" }}
+              >
+                <span style={{ width: "max-content" }}>View on Map</span>
                 <span className="place-item__map--fade">
                   <i class="fas fa-map-marker-alt"></i>
                 </span>
@@ -138,9 +142,7 @@ const PlaceItem = ({
                   </i>
                   <div className="col__item__vertical">
                     <p>Area</p>
-                    <p className="col__item__vertical__highlight">
-                      {area} SQFT
-                    </p>
+                    <p className="col__item__vertical__highlight">{area} m²</p>
                   </div>
                 </div>
                 <div className="col__item">
@@ -269,23 +271,23 @@ const PlaceItem = ({
               <li className="place-item__description__price"> ${price} </li>
               <li className="place-item__description__date"> Monthly </li>
             </div>
-            <div>
+            <div style={{ display: "flex", alignItems: "baseline" }}>
               <Link to={`/homes/${id}`}>
                 <button className="place-item__description__details">
                   {" "}
                   Show Details <i className="fa fa-angle-right"> </i>
                 </button>
               </Link>
-            </div>
-            <div className="place-item__actions">
-              {auth.userId === creatorId && (
-                <Button to={`/places/${id}`}>Edit</Button>
-              )}
-              {auth.userId === creatorId && (
-                <Button danger onClick={showDeleteWarningHandler}>
-                  Delete
-                </Button>
-              )}
+              <div className="place-item__actions">
+                {auth.userId === creatorId && (
+                  <Button to={`/places/${id}`}>Edit</Button>
+                )}
+                {auth.userId === creatorId && (
+                  <Button danger onClick={showDeleteWarningHandler}>
+                    Delete
+                  </Button>
+                )}
+              </div>
             </div>
           </div>
           {/* <div className="place-item__actions">

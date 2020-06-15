@@ -65,7 +65,7 @@ const MapSearch = (props) => {
 
   return (
     <div className="mapsearch__container">
-      <div className="map-container">
+      <div className={`map-container ${props.main}`}>
         <Map
           center={searchedPlaceCoords ? searchedPlaceCoords : overView}
           locations={coordinatesInDB}
@@ -90,7 +90,7 @@ const MapSearch = (props) => {
             }}
           >
             We have rentals all around the world. Let us find the perfect one
-            for you.
+            for you
           </label>
           <div className="search__container">
             <input
@@ -99,7 +99,7 @@ const MapSearch = (props) => {
               type="text"
               onChange={handleChange}
             />
-            <i class="fas fa-search-location" />
+            <i className="fas fa-search-location"></i>
           </div>
         </form>
       </div>

@@ -16,7 +16,7 @@ export const useAuth = () => {
 
     const tokenExpirationDate =
       expirationDate || new Date(new Date().getTime() + 1000 * 60 * 60);
-    // even though the code here might be hard to read and implement - thank you, Google - the logic itself, however, is quite simple
+    // even though the code here might be hard to read and implement - thank you god we have Google on our side - the logic itself, however, is quite simple
     // I'm simply making sure we know when the user logs in, so that we can log him out after one hour (please notice that I've set such expiration time in our backend for the token, so that it is indeed consistent with that)
     //
     setTokenExpirationDate(tokenExpirationDate);

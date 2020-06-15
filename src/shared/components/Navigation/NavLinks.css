@@ -47,7 +47,6 @@
 
 .nav-links button:hover,
 .nav-links button:active {
-  border: 1px solid #292929;
   color: #292929;
 }
 
@@ -71,8 +70,13 @@
     font-size: 20px;
   }
 
+  .nav-links .nav--scroll--active {
+    color: #fff;
+    border: none;
+    font-size: 20px;
+  }
+
   .nav-links button {
-    color: #000;
     background: transparent;
   }
 

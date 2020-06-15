@@ -11,11 +11,11 @@ const PlaceList = (props) => {
   const [lastIndex, setLastIndex] = React.useState(0);
   const [currentPage, setCurrentPage] = React.useState(1);
   useEffect(() => {
-    setStartingIndex(10 * (currentPage - 1));
+    setStartingIndex(4 * (currentPage - 1));
   }, [currentPage]);
 
   useEffect(() => {
-    setLastIndex(startingIndex + 10);
+    setLastIndex(startingIndex + 4);
   }, [startingIndex]);
 
   // if (props.items.slice(startingIndex, lastIndex).length === 0) {

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 import Avatar from "../../shared/components/UIElements/Avatar";
 import Card from "../../shared/components/UIElements/Card";
@@ -7,7 +8,7 @@ import "./UserItem.css";
 
 const UserItem = (props) => {
   return (
-    <li className="user-item">
+    <motion.li className="user-item" whileHover={{ scale: 1.03 }}>
       <Card className="user-item__content" style={{ position: "relative" }}>
         <Link
           to={`/${props.id}/places`}
@@ -46,7 +47,7 @@ const UserItem = (props) => {
         </h2>
         <div
           className="agent-contact"
-          style={{ color: "black", padding: "0 10px" }}
+          style={{ color: "black", padding: "0 10px", height: "250px" }}
         >
           <p>
             <i>
@@ -82,7 +83,7 @@ const UserItem = (props) => {
           </p>
         </div>
       </Card>
-    </li>
+    </motion.li>
   );
 };
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 
 import { AuthContext } from "../../context/auth-context";
@@ -8,15 +8,6 @@ import "./NavLinks.css";
 
 const NavLinks = (props) => {
   const auth = useContext(AuthContext);
-  const [user, setUser] = useState();
-
-  useEffect(() => {
-    const fetchUser = async (id) => {
-      try {
-        const response = await fetch();
-      } catch (err) {}
-    };
-  }, ["id"]);
 
   return (
     <ul className="nav-links" style={{ position: "relative" }}>

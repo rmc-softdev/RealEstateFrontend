@@ -1,0 +1,13 @@
+.filter__container {
+  display: flex;
+  align-items: initial;
+  width: fit-content;
+  margin: 0 auto;
+  margin-top: 70px;
+}
+.filters__left {
+  margin-right: 20px;
+}
+
+.filters__right {
+}

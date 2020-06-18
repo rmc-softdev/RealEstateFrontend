@@ -13,9 +13,9 @@ import {
 // import Auth from "./user/pages/Auth";
 import MainNavigation from "./shared/components/Navigation/MainNavigation";
 import { AuthContext } from "./shared/context/auth-context";
+import { HomesContext } from "./shared/context/homes-context";
 import { useAuth } from "./shared/hooks/auth-hook";
-import { useMap } from "./shared/hooks/map-hook";
-import { MapContext } from "./shared/context/googleMaps-context";
+import { useHomes } from "./shared/hooks/homes-hook";
 import LoadingSpinner from "./shared/components/UIElements/LoadingSpinner";
 import Home from "./shared/Home";
 import HomesShowCase from "./places/pages/HomesShowCase";
@@ -29,7 +29,16 @@ const Auth = React.lazy(() => import("./user/pages/Auth"));
 
 const App = () => {
   const { token, login, logout, userId, userAvatar } = useAuth();
-  const { locations, getLocations } = useMap();
+  const {
+    homes,
+    setHomes,
+    filteredHomes,
+    setFilteredHomes,
+    isLoading,
+    error,
+    sendRequest,
+    clearError,
+  } = useHomes();
 
   let routes;
 
@@ -89,10 +98,17 @@ const App = () => {
         userAvatar: userAvatar,
       }}
     >
-      <MapContext.Provider
+      <HomesContext.Provider
         value={{
-          locations: locations,
-          getLocations: getLocations,
+          //notice they come from the hook
+          homes,
+          setHomes,
+          filteredHomes,
+          setFilteredHomes,
+          isLoading,
+          error,
+          sendRequest,
+          clearError,
         }}
       >
         <Router>
@@ -109,7 +125,7 @@ const App = () => {
             </Suspense>
           </main>
         </Router>
-      </MapContext.Provider>
+      </HomesContext.Provider>
     </AuthContext.Provider>
   );
 };

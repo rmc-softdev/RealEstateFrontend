@@ -1,40 +1,42 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 
 import { useHttpClient } from "../../shared/hooks/http-hook";
+import { HomesContext } from "../../shared/context/homes-context";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 import ErrorModal from "../../shared/components/UIElements/ErrorModal";
+import PlacesFilters from "../components/PlacesFilters";
 import PlaceList from "../../places/components/PlaceList";
 import MapSearch from "../../shared/components/MapSearch";
 
 import "./HomesShowCase.css";
 
 const HomesShowCase = () => {
-  const [loadedUsers, setLoadedUsers] = useState();
-  const [homes, setHomes] = useState();
-  const { isLoading, error, sendRequest, clearError } = useHttpClient();
-
-  useEffect(() => {
-    const fetchAllHomes = async () => {
-      try {
-        const responseData = await sendRequest(
-          `${process.env.REACT_APP_BACKEND_URL}/places/homes`
-        );
-        setHomes(responseData.homes);
-      } catch (err) {}
-    };
-    fetchAllHomes();
-  }, [sendRequest]);
+  const placesContext = useContext(HomesContext);
 
   return (
     <>
-      {homes && <MapSearch homes={homes} main={"main"} />}
-      <ErrorModal error={error} onClear={clearError} />
-      {isLoading && (
+      {placesContext.homes && (
+        <MapSearch homes={placesContext.homes} main={"main"} />
+      )}
+      <ErrorModal
+        error={placesContext.error}
+        onClear={placesContext.clearError}
+      />
+      {placesContext.isLoading && (
         <div className="center">
           <LoadingSpinner asOverlay />
         </div>
       )}
-      {!isLoading && homes && <PlaceList items={homes} />}
+      <PlacesFilters
+        homes={placesContext.homes}
+        setHomes={placesContext.setHomes}
+        filteredHomes={placesContext.filteredHomes}
+        setFilteredHomes={placesContext.setFilteredHomes}
+      />
+
+      {!placesContext.isLoading && placesContext.homes && (
+        <PlaceList items={placesContext.filteredHomes || placesContext.homes} />
+      )}
     </>
   );
 };

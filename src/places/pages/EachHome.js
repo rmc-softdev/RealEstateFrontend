@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import PlaceList from "../components/PlaceList";
-import ErrorModal from "../../shared/components/UIElements/ErrorModal";
-import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 import Map from "../../shared/components/UIElements/Map";
 
 import { useHttpClient } from "../../shared/hooks/http-hook";
@@ -12,7 +9,7 @@ import "./EachHome.css";
 
 const EachHome = () => {
   const [searchedPlace, setSearchedPlace] = useState();
-  const { isLoading, error, sendRequest, clearError } = useHttpClient();
+  const { sendRequest } = useHttpClient();
   const [creator, setCreator] = useState();
   const [creatorData, setCreatorData] = useState();
   const placeId = useParams().homeId;
@@ -28,7 +25,7 @@ const EachHome = () => {
       } catch (err) {}
     };
     fetchPlaceById();
-  }, [placeId]);
+  }, [placeId, sendRequest]);
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -52,6 +49,7 @@ const EachHome = () => {
               <img
                 src={`${process.env.REACT_APP_ASSET_URL}/${searchedPlace.image}`}
                 style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                alt="Place Avatar"
               />
             )}
           </div>
@@ -250,6 +248,7 @@ const EachHome = () => {
                       height: "100%",
                       objectFit: "cover",
                     }}
+                    alt="Creator Avatar"
                   />
                 )}
               </div>

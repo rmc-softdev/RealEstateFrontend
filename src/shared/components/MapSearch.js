@@ -1,16 +1,10 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState } from "react";
 
 import Map from "../components/UIElements/Map";
 import "./MapSearch.css";
-import { MapContext } from "../context/googleMaps-context";
-import { useHttpClient } from "../hooks/http-hook";
-import GoogleMapsSearch from "./UIElements/GoogleMapsSearch.js";
 
 const MapSearch = (props) => {
-  const { isLoading, error, sendRequest, clearError } = useHttpClient();
-  const { locations, getLocations } = useContext(MapContext);
   const [term, setTerm] = useState("");
-  const [coords, setCoords] = useState([]);
   const [searchedPlaceUrl, setSearchedPlaceUrl] = useState();
   const [searchedPlaceCoords, setSearchedPlaceCoords] = useState();
   const [coordinatesInDB, setCoordinatesInDB] = useState([]);
@@ -18,25 +12,29 @@ const MapSearch = (props) => {
   const [visitorCoordsLat, setVisitorCoordsLng] = useState();
 
   useEffect(() => {
-    const getCoordsForAddress = async (term) => {
-      const response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=$${term}
-      &key=${"AIzaSyAud-EQHWYBuy-53l0P01mu-fVLE-w6l9g"}
-    `);
-      if (!response) {
-      } else {
-        setSearchedPlaceUrl(response.url);
-      }
-    };
-    getCoordsForAddress(term);
-    const getVisitorCoords = async () => {
-      try {
-        window.navigator.geolocation.getCurrentPosition((position) => {
-          setVisitorCoordsLat(position.coords.latitude);
-          setVisitorCoordsLng(position.coords.longitude);
-        });
-      } catch (err) {}
-    };
+    setTimeout(() => {
+      const getCoordsForAddress = async (term) => {
+        const response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=$${term}
+        &key=${"AIzaSyAud-EQHWYBuy-53l0P01mu-fVLE-w6l9g"}
+      `);
+        if (!response) {
+        } else {
+          setSearchedPlaceUrl(response.url);
+        }
+      };
+      getCoordsForAddress(term);
+    }, 2000);
+
+    // const getVisitorCoords = async () => {
+    //   try {
+    //     window.navigator.geolocation.getCurrentPosition((position) => {
+    //       setVisitorCoordsLat(position.coords.latitude);
+    //       setVisitorCoordsLng(position.coords.longitude);
+    //     });
+    //   } catch (err) {}
+    // };
   }, [term]);
+
   useEffect(() => {
     const response = fetch(searchedPlaceUrl)
       .then((data) => data.json())
@@ -65,6 +63,23 @@ const MapSearch = (props) => {
 
   return (
     <div className="mapsearch__container">
+      <p
+        style={{
+          fontWeight: 500,
+          textAlign: "center",
+          marginBottom: "50px",
+          fontSize: "22px",
+          position: "relative",
+        }}
+      >
+        Please note that this project is not fully fledged. For now, you may
+        only view our rentals in the database as well as browse one near you.
+        <p style={{ fontSize: "16px" }}>
+          Since adding other features only amounts to more of the same
+          (codewise) and this was already very intriguing to do, I chose to
+          leave it as it is.
+        </p>
+      </p>
       <div className={`map-container ${props.main}`}>
         <Map
           center={searchedPlaceCoords ? searchedPlaceCoords : overView}
@@ -80,6 +95,7 @@ const MapSearch = (props) => {
             marginTop: "80px",
             alignItems: "center",
           }}
+          onSubmit={(e) => e.preventDefault()}
         >
           <label
             htmlFor="search"
@@ -89,8 +105,7 @@ const MapSearch = (props) => {
               fontWeight: "500",
             }}
           >
-            We have rentals all around the world. Let us find the perfect one
-            for you
+            We have rentals all around the USA. Search one near you
           </label>
           <div className="search__container">
             <input

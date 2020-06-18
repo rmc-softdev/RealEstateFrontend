@@ -1,21 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { motion, useViewportScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 
 import "./Home.css";
 
 const Home = () => {
-  const [yPosition, setYPosition] = useState();
-  const [sohuldAnimate, setShouldAnimate] = useState(false);
-
-  useEffect(() => {
-    window.onscroll = () => {
-      if (window.scrollY > 280) {
-        setShouldAnimate(true);
-      }
-    };
-  });
-
   return (
     <>
       <div className="background-overlay">
@@ -88,7 +77,7 @@ const Home = () => {
               animate={{ opacity: 1 }}
               transition={{
                 duration: 1,
-                delay: 1,
+                delay: 2,
                 ease: "easeInOut",
               }}
             >
@@ -110,7 +99,7 @@ const Home = () => {
               animate={{ opacity: 1 }}
               transition={{
                 duration: 1,
-                delay: 1,
+                delay: 2,
                 ease: "easeInOut",
               }}
             >
@@ -134,7 +123,7 @@ const Home = () => {
               animate={{ opacity: 1 }}
               transition={{
                 duration: 1,
-                delay: 1,
+                delay: 2,
                 ease: "easeInOut",
               }}
             >

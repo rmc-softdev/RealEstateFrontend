@@ -58,6 +58,7 @@ const PlaceItem = ({
       );
       onDelete(id);
     } catch (err) {}
+    window.location.reload(true);
   };
 
   return (
@@ -118,7 +119,7 @@ const PlaceItem = ({
               >
                 <span style={{ width: "max-content" }}>View on Map</span>
                 <span className="place-item__map--fade">
-                  <i class="fas fa-map-marker-alt"></i>
+                  <i className="fas fa-map-marker-alt"></i>
                 </span>
               </span>
             </h3>
@@ -236,7 +237,7 @@ const PlaceItem = ({
                   </div>
                 </div>
                 <div className="col__item">
-                  <i class="meta-item-icon icon-tag">
+                  <i className="meta-item-icon icon-tag">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       class="meta-icon-container"

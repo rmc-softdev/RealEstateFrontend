@@ -4,9 +4,7 @@ import { useRouteMatch } from "react-router";
 import MainHeader from "./MainHeader";
 import NavLinks from "./NavLinks";
 import SideDrawer from "./SideDrawer";
-import Backdrop from "../UIElements/Backdrop";
 import "./MainNavigation.css";
-import Button from "../FormElements/Button";
 
 const MainNavigation = (props) => {
   const [transparency, setTransparency] = useState(true);

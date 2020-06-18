@@ -1,8 +1,6 @@
 import React, { useEffect } from "react";
 
-import Card from "../../shared/components/UIElements/Card";
 import PlaceItem from "./PlaceItem";
-import Button from "../../shared/components/FormElements/Button";
 import "./PlaceList.css";
 import PaginationRounded from "../../shared/components/UIElements/Pagination";
 

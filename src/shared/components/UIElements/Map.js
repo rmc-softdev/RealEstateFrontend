@@ -18,7 +18,7 @@ const Map = (props) => {
     if (locations) {
       locations.forEach((el) => {
         const marker = new window.google.maps.Marker({
-          position: new window.google.maps.LatLng(el.lat, el.lng),
+          position: new window.google.maps.LatLng(el?.lat, el?.lng),
           map: map,
         });
       });

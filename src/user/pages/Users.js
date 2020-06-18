@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import UsersList from "../components/UsersList";
 import ErrorModal from "../../shared/components/UIElements/ErrorModal";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
-import HttpClient, { useHttpClient } from "../../shared/hooks/http-hook";
+import { useHttpClient } from "../../shared/hooks/http-hook";
 
 const Users = () => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();

@@ -29,7 +29,7 @@ const ImageUpload = (props) => {
   const pickedHandler = (e) => {
     let pickedFile;
     let fileIsValid = isValid;
-    if (e.target.files && e.target.files.length != 0) {
+    if (e.target.files && e.target.files.length !== 0) {
       pickedFile = e.target.files[0];
       setFile(pickedFile);
       SetIsValid(true);

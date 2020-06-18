@@ -6,8 +6,9 @@ This is my master project. It was entirely designed by me, but its true strength
 Home Page            |  Category Showcase
 :-------------------------:|:-------------------------:
 ![](https://i.ibb.co/GswL4gn/index.png)  |  ![](https://i.ibb.co/GswL4gn/index.png)
-Advanced Search            |  Sign Up page
-|
+
+Home Page            |  Category Showcase
+:-------------------------:|:-------------------------:
 ![](https://i.ibb.co/GswL4gn/index.png)  |  ![](https://i.ibb.co/GswL4gn/index.png)
 
 ## How to run it

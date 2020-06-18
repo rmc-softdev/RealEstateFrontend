@@ -1,9 +1,10 @@
 ## About this app
-This is my master project. It was entirely designed by me, but
+This is my master project. It was entirely designed by me, but its true strength lies in the code. With a clean design pattern, it is truly scalable. To do so, it's really a matter of time and effort, the structure is all here, for I have left lots of reusable components, you may want to open the UUI Elements folder (but not only) to understand the sheer force behind this statement. It took quite some time and effort to build such structure, but I finally decided to release it.
 
 ## Live demo at https://aniworld-mern.web.app/
-<img src="https://i.ibb.co/GswL4gn/index.png" width="100%">
-<img src="https://i.ibb.co/GswL4gn/index.png" width="600">
+Solarized dark             |  Solarized Ocean
+:-------------------------:|:-------------------------:
+![](https://i.ibb.co/GswL4gn/index.png)  |  ![](https://i.ibb.co/GswL4gn/index.png)
 
 ## How to run it
 
@@ -16,8 +17,8 @@ Simply type consecutively:
 
 ## Technical comments
 
-This project has lots of modern and advanced features, such as the hook system, a great deal of content managed with Redux, Higher Order Components to make it easy to reuse logic throughout the app and much more. It also contains quite a good deal of complex design system, handled mostly by the new grid and flex system, even complex structures such as the the hovering effect is handled by these two powerful tools.
+The data management is very neatly handled by the new Context API, which handles both the login and the filters, for I had already one big project with Redux and decided to expand my tools a bit. Every component is functional, with tons of hooks, one of the things I highly regarded about it was the custom hooks, we have a custom hook for http requests, for the auth and so on so forth. A great deal of the UI error handling comes from the back end, but not only, for we also have lots of customizable components, almost every input, for example, comes from a customizable form control.
 
 ## Issues
 
-Now, I must say if there's one thing that I think I could have done better is the overall design pattern. Needless to say, I've done it from the absolute ground up, so there was alwways the possbility of committing some crimes in this regard. If you want a more robust and mature version of my current design pattern, you can check out my new Real Estate app https://github.com/rmc-softdev/RealEstateFrontend. Also, I should point that the requests are not 100% optimal, it could've been way better perfomance wise.
+I honestly think that this project's size is pretty big and as such it became quite troublesome to keep expanding as just a side project, for one thing, the form control which I once highly regarded became so big and complex that if you don't look at it for a couple of days you might get lost on how to use it properly. This slowed me down, sometimes and I think I could've maybe done some better logic here and there (from this principle of minimal effort).

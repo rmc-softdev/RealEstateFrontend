@@ -12,8 +12,7 @@ Simply type consecutively:
 ### `npm i`
 ### `npm start`
 
->> In both the FRONT END folder and the BACK END folder
->> You can find the Back End here: https://github.com/rmc-softdev/RealEstateBackend
+>> In both the FRONT END folder and the BACK END folder. You can find the BACK END folder here: https://github.com/rmc-softdev/RealEstateBackend
 
 ## Technical comments
 

@@ -7,7 +7,7 @@ Home Page            |  Category Showcase
 :-------------------------:|:-------------------------:
 ![](https://i.ibb.co/GswL4gn/index.png)  |  ![](https://i.ibb.co/GswL4gn/index.png)
 
-Home Page            |  Category Showcase
+Advanced Search            |  Sign Up
 :-------------------------:|:-------------------------:
 ![](https://i.ibb.co/GswL4gn/index.png)  |  ![](https://i.ibb.co/GswL4gn/index.png)
 

@@ -2,7 +2,9 @@
 This is my master project. It was entirely designed by me, but its true strength lies in the code. With a clean design pattern, it is truly scalable. To do so, it's really a matter of time and effort, the structure is all here, for I have left lots of reusable components, you may want to open the UUI Elements folder (but not only) to understand the sheer force behind this statement. It took quite some time and effort to build such structure, but I finally decided to release it.
 
 ## Live demo at https://aniworld-mern.web.app/
-Solarized dark             |  Solarized Ocean
+Solarized dark             |  Solarized Ocean              
+:-------------------------:|:-------------------------:
+Solarized dark             |  Solarized Ocean              
 :-------------------------:|:-------------------------:
 ![](https://i.ibb.co/GswL4gn/index.png)  |  ![](https://i.ibb.co/GswL4gn/index.png)
 

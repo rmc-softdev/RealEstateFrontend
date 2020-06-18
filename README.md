@@ -3,13 +3,13 @@ This is my master project. It was entirely designed by me, but its true strength
 
 ## Live demo at https://aniworld-mern.web.app/
 
-Home Page            |  Category Showcase
+Home Page            |  Agents Page
 :-------------------------:|:-------------------------:
-![](https://i.ibb.co/GswL4gn/index.png)  |  ![](https://i.ibb.co/HzhgQS2/categories.png)
+![](https://i.ibb.co/Jc5KfD6/landingpage.png)  |  ![](https://i.ibb.co/hY29TD7/agentspage.png)
 
-Advanced Search            |  Sign Up
+Rentals Page          |  Individual Home
 :-------------------------:|:-------------------------:
-![](https://i.ibb.co/hRZQWJn/advanced.png)  |  ![](https://i.ibb.co/ggvG5cJ/sign-up.png)
+![](https://i.ibb.co/pfN2ym7/homes.png)  |  ![](https://i.ibb.co/bgfd9ZM/each-Home.png)
 
 ## How to run it
 

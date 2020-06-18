@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 import Map from "../components/UIElements/Map";
 import "./MapSearch.css";
@@ -62,38 +63,14 @@ const MapSearch = (props) => {
   };
 
   return (
-    <div className="mapsearch__container">
-      <p
-        style={{
-          fontWeight: 500,
-          textAlign: "center",
-          marginBottom: "50px",
-          fontSize: "22px",
-          position: "relative",
-        }}
-      >
-        Please note that this project is not fully fledged. For now, you may
-        only view our rentals in the database as well as browse one near you.
-        <p style={{ fontSize: "16px" }}>
-          Since adding other features only amounts to more of the same
-          (codewise) and this was already very intriguing to do, I chose to
-          leave it as it is.
-        </p>
-      </p>
-      <div className={`map-container ${props.main}`}>
-        <Map
-          center={searchedPlaceCoords ? searchedPlaceCoords : overView}
-          locations={coordinatesInDB}
-          zoom={searchedPlaceCoords ? 16 : 5}
-        />
-      </div>
+    <motion.div className="mapsearch__container">
       <div className="search__container">
         <form
           style={{
             display: "flex",
             flexDirection: "column",
-            marginTop: "80px",
             alignItems: "center",
+            marginBottom: "20px",
           }}
           onSubmit={(e) => e.preventDefault()}
         >
@@ -118,7 +95,34 @@ const MapSearch = (props) => {
           </div>
         </form>
       </div>
-    </div>
+      {/* <p
+        style={{
+          fontWeight: 500,
+          textAlign: "center",
+          marginBottom: "50px",
+          fontSize: "22px",
+          position: "relative",
+        }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ ease: "easeInOut", duration: 2 }}
+      >
+        Please note that this project is not fully fledged. For now, you may
+        only view our rentals in the database as well as browse one near you.
+        <p style={{ fontSize: "16px" }}>
+          Since adding other features only amounts to more of the same
+          (codewise) and this was already very intriguing to do, I chose to
+          leave it as it is.
+        </p>
+      </p> */}
+      <div className={`map-container ${props.main}`}>
+        <Map
+          center={searchedPlaceCoords ? searchedPlaceCoords : overView}
+          locations={coordinatesInDB}
+          zoom={searchedPlaceCoords ? 16 : 5}
+        />
+      </div>
+    </motion.div>
   );
 };
 

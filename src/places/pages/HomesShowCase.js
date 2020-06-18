@@ -33,7 +33,6 @@ const HomesShowCase = () => {
         filteredHomes={placesContext.filteredHomes}
         setFilteredHomes={placesContext.setFilteredHomes}
       />
-
       {!placesContext.isLoading && placesContext.homes && (
         <PlaceList items={placesContext.filteredHomes || placesContext.homes} />
       )}

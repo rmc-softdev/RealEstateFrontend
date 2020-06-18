@@ -2,14 +2,11 @@
   box-sizing: border-box;
 }
 
-html {
-  font-family: "Roboto", sans-serif;
-}
-
 body {
   background-color: #eff1f5;
   padding: 0;
   margin: 0;
+  font-family: roboto, Noto Sans Myanmar UI, arial, sans-serif;
 }
 
 a {

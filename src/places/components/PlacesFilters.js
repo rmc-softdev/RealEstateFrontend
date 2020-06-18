@@ -13,13 +13,18 @@ const PlacesFilters = ({
 }) => {
   return (
     <>
-      <div
-        style={{ textAlign: "center", marginTop: "100px", fontWeight: "500" }}
-      >
-        {" "}
-        Choose the right home for you
-      </div>
       <div className="filter__container">
+        <div
+          style={{
+            textAlign: "center",
+            marginBottom: "20px",
+            fontWeight: "500",
+            fontSize: "30px",
+          }}
+        >
+          {" "}
+          Choose the right home for you
+        </div>
         <div className="filters__left">
           <RangeSlider
             label="Area (m²)"

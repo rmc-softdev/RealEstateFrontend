@@ -1,5 +1,5 @@
 ## About this app
-This is a personal side project of mine (made with React and Redux), which is based on a anime community app I'm very fond of. It is designed to showcase the most recent and core React skills (as of 2020).
+This is my master project. It was entirely designed by me, but
 
 ## Live demo at https://aniworld-mern.web.app/
 <img src="https://i.ibb.co/GswL4gn/index.png" width="100%">
@@ -11,6 +11,9 @@ Simply type consecutively:
 
 ### `npm i`
 ### `npm start`
+
+>> In both the FRONT END folder and the BACK END folder
+>> You can find the Back End here: https://github.com/rmc-softdev/RealEstateBackend
 
 ## Technical comments
 

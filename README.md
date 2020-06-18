@@ -3,11 +3,11 @@ This is my master project. It was entirely designed by me, but its true strength
 
 ## Live demo at https://aniworld-mern.web.app/
 
-Solarized dark             |  Solarized Ocean
+Home Page            |  Category Showcase
 :-------------------------:|:-------------------------:
 ![](https://i.ibb.co/GswL4gn/index.png)  |  ![](https://i.ibb.co/GswL4gn/index.png)
-Solarized dark             |  Solarized Ocean
-:-------------------------:|:-------------------------:
+Advanced Search            |  Sign Up page
+|
 ![](https://i.ibb.co/GswL4gn/index.png)  |  ![](https://i.ibb.co/GswL4gn/index.png)
 
 ## How to run it

@@ -5,11 +5,11 @@ This is my master project. It was entirely designed by me, but its true strength
 
 Home Page            |  Category Showcase
 :-------------------------:|:-------------------------:
-![](https://i.ibb.co/GswL4gn/index.png)  |  ![](https://i.ibb.co/GswL4gn/index.png)
+![](https://i.ibb.co/GswL4gn/index.png)  |  ![](https://i.ibb.co/HzhgQS2/categories.png)
 
 Advanced Search            |  Sign Up
 :-------------------------:|:-------------------------:
-![](https://i.ibb.co/GswL4gn/index.png)  |  ![](https://i.ibb.co/GswL4gn/index.png)
+![](https://i.ibb.co/hRZQWJn/advanced.png)  |  ![](https://i.ibb.co/ggvG5cJ/sign-up.png)
 
 ## How to run it
 

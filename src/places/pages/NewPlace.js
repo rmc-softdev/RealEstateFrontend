@@ -69,6 +69,7 @@ const NewPlace = () => {
         }
       );
       history.push("/");
+      window.location.reload(true);
     } catch (err) {}
   };
 

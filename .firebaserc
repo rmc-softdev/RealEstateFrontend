@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "mern-in-a-nutshell"
+    "default": "mern-in-a-nutshell",
+    "rmcrealestate": "mern-in-a-nutshell",
+    "snug-homes": "snug-homes"
   }
 }

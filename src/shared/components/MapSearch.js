@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { motion } from "framer-motion";
 
 import Map from "../components/UIElements/Map";
@@ -9,22 +9,21 @@ const MapSearch = (props) => {
   const [searchedPlaceUrl, setSearchedPlaceUrl] = useState();
   const [searchedPlaceCoords, setSearchedPlaceCoords] = useState();
   const [coordinatesInDB, setCoordinatesInDB] = useState([]);
-  const [visitorCoordsLng, setVisitorCoordsLat] = useState();
-  const [visitorCoordsLat, setVisitorCoordsLng] = useState();
+  //Later updates
+  // const [visitorCoordsLng, setVisitorCoordsLat] = useState();
+  // const [visitorCoordsLat, setVisitorCoordsLng] = useState();
 
   useEffect(() => {
-    setTimeout(() => {
-      const getCoordsForAddress = async (term) => {
-        const response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=$${term}
+    const getCoordsForAddress = async (term) => {
+      const response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=$${term}
         &key=${"AIzaSyAud-EQHWYBuy-53l0P01mu-fVLE-w6l9g"}
       `);
-        if (!response) {
-        } else {
-          setSearchedPlaceUrl(response.url);
-        }
-      };
-      getCoordsForAddress(term);
-    }, 2000);
+      if (!response) {
+      } else {
+        setSearchedPlaceUrl(response.url);
+      }
+    };
+    getCoordsForAddress(term);
 
     // const getVisitorCoords = async () => {
     //   try {
@@ -58,9 +57,21 @@ const MapSearch = (props) => {
   };
 
   const overView = {
-    lat: visitorCoordsLat ? visitorCoordsLat : 39.84031840000001,
-    lng: visitorCoordsLng ? visitorCoordsLng : -86.12785629999999,
+    lat: 39.84031840000001,
+    lng: -86.12785629999999,
   };
+
+  const showMap = useCallback(() => {
+    return (
+      <div className={`map-container ${props.main}`}>
+        <Map
+          center={searchedPlaceCoords ? searchedPlaceCoords : overView}
+          locations={coordinatesInDB}
+          zoom={searchedPlaceCoords ? 16 : 5}
+        />
+      </div>
+    );
+  }, [term, props]);
 
   return (
     <motion.div className="mapsearch__container">
@@ -90,38 +101,14 @@ const MapSearch = (props) => {
               placeholder="Find our rentals nearest you..."
               type="text"
               onChange={handleChange}
+              value={term}
             />
             <i className="fas fa-search-location"></i>
           </div>
         </form>
       </div>
-      {/* <p
-        style={{
-          fontWeight: 500,
-          textAlign: "center",
-          marginBottom: "50px",
-          fontSize: "22px",
-          position: "relative",
-        }}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ ease: "easeInOut", duration: 2 }}
-      >
-        Please note that this project is not fully fledged. For now, you may
-        only view our rentals in the database as well as browse one near you.
-        <p style={{ fontSize: "16px" }}>
-          Since adding other features only amounts to more of the same
-          (codewise) and this was already very intriguing to do, I chose to
-          leave it as it is.
-        </p>
-      </p> */}
-      <div className={`map-container ${props.main}`}>
-        <Map
-          center={searchedPlaceCoords ? searchedPlaceCoords : overView}
-          locations={coordinatesInDB}
-          zoom={searchedPlaceCoords ? 16 : 5}
-        />
-      </div>
+
+      {showMap()}
     </motion.div>
   );
 };

@@ -29,7 +29,6 @@ export default function RangeSlider({
   };
   let itemToFilter = label.toLowerCase().split(" ")[0].trim();
   let max;
-  let min;
 
   useEffect(() => {
     // since we want to reuse this, it's better to not hard code it here
@@ -45,7 +44,7 @@ export default function RangeSlider({
       );
       initialValue = 2000;
     }
-  }, [value]);
+  }, [value, homes, itemToFilter, setFilteredHomes]);
 
   const handleMinMax = () => {
     if (itemToFilter === "area") {

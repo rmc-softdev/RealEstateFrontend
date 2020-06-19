@@ -60,18 +60,18 @@ const UserItem = (props) => {
             <span className="agent-contact__dynamic"> {props.office}</span>
           </p>
           <p>
-            <i class="fas fa-fax"></i> Fax:{" "}
+            <i className="fas fa-fax"></i> Fax:{" "}
             <span className="agent-contact__dynamic"> {props.fax}</span>
           </p>
           <p>
-            <i class="fas fa-map-marker-alt"></i>
+            <i className="fas fa-map-marker-alt"></i>
             <span style={{ marginLeft: "8px" }}>
               Location:{" "}
               <span className="agent-contact__dynamic"> {props.location}</span>
             </span>
           </p>
           <p>
-            <i class="far fa-envelope"></i>
+            <i className="far fa-envelope"></i>
 
             <span style={{ marginLeft: "5px" }}>
               Email:{" "}

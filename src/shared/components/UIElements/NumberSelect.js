@@ -40,7 +40,7 @@ const NumberSelect = ({
     if (setFilteredHomes && itemToFilter === "garages") {
       setFilteredHomes(homes?.filter((el) => el.garages >= value));
     }
-  }, [value]);
+  }, [value, homes, label, setFilteredHomes]);
 
   return (
     <form

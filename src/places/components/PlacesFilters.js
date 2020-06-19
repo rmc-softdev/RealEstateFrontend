@@ -13,6 +13,25 @@ const PlacesFilters = ({
 }) => {
   return (
     <>
+      <p
+        style={{
+          fontWeight: 500,
+          textAlign: "center",
+          marginBottom: "50px",
+          fontSize: "18px",
+          position: "relative",
+        }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ ease: "easeInOut", duration: 2 }}
+      >
+        Please note that this project is not fully fledged. For now, you may
+        only view our rentals in the database as well as browse one near you.
+        <p style={{ fontSize: "14px" }}>
+          Also, since the DB isn't production ready just yet, it may take longer
+          than usual so that changes can propagate towards the server.
+        </p>
+      </p>
       <div className="filter__container">
         <div
           style={{
@@ -39,12 +58,6 @@ const PlacesFilters = ({
             filteredHomes={filteredHomes}
             setFilteredHomes={setFilteredHomes}
           />
-          <SearchFieldFilter
-            label="Property Status"
-            homes={homes}
-            filteredHomes={filteredHomes}
-            setFilteredHomes={setFilteredHomes}
-          />
         </div>
         <div className="filters__right">
           <NumberSelect
@@ -65,6 +78,12 @@ const PlacesFilters = ({
             label="Garages"
             homes={homes}
             setHomes={setHomes}
+            filteredHomes={filteredHomes}
+            setFilteredHomes={setFilteredHomes}
+          />
+          <SearchFieldFilter
+            label="Property Status"
+            homes={homes}
             filteredHomes={filteredHomes}
             setFilteredHomes={setFilteredHomes}
           />

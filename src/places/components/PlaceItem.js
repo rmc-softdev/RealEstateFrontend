@@ -126,7 +126,7 @@ const PlaceItem = ({
             <div className="place-item__info__featured">
               <div className="left-col">
                 <div className="col__item">
-                  <i class="meta-item-icon icon-area">
+                  <i className="meta-item-icon icon-area">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       class="meta-icon-container"
@@ -147,7 +147,7 @@ const PlaceItem = ({
                   </div>
                 </div>
                 <div className="col__item">
-                  <i class="meta-item-icon icon-bath">
+                  <i className="meta-item-icon icon-bath">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       class="meta-icon-container"
@@ -170,7 +170,7 @@ const PlaceItem = ({
                   </div>
                 </div>
                 <div className="col__item">
-                  <i class="meta-item-icon icon-ptype">
+                  <i className="meta-item-icon icon-ptype">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       class="meta-icon-container"
@@ -195,7 +195,7 @@ const PlaceItem = ({
               </div>
               <div className="right-col">
                 <div className="col__item">
-                  <i class="meta-item-icon icon-bed">
+                  <i className="meta-item-icon icon-bed">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       class="meta-icon-container"
@@ -216,7 +216,7 @@ const PlaceItem = ({
                   </div>
                 </div>
                 <div className="col__item">
-                  <i class="meta-item-icon icon-garage">
+                  <i className="meta-item-icon icon-garage">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       class="meta-icon-container"

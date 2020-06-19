@@ -83,7 +83,7 @@ const Home = () => {
             >
               <div className="submit__container__cards__imgCard">
                 <div className="submit__container__cards__imgCard--inner">
-                  <i class="fas fa-user-plus fa-3x"></i>
+                  <i className="fas fa-user-plus fa-3x"></i>
                 </div>
               </div>
               <p className="sign">Sign up / Register</p>

@@ -33,7 +33,7 @@ export default function FormPropsTextFields({
         return el.status.toString().match(regex);
       })
     );
-  }, [status]);
+  }, [status, homes, setFilteredHomes]);
 
   return (
     <form

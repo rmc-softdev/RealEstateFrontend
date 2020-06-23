@@ -71,7 +71,7 @@ const MapSearch = (props) => {
         />
       </div>
     );
-  }, [term, props]);
+  }, [term, props, coordinatesInDB, overView, searchedPlaceCoords]);
 
   return (
     <motion.div className="mapsearch__container">

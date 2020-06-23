@@ -201,3 +201,12 @@ h3 {
     font-size: 20px;
   }
 }
+
+@media only screen and (max-width: 500px) {
+  .main__slogan__container__title {
+    font-size: 35px;
+  }
+  .sloganShowCase__slogan__container__title {
+    text-align: center;
+  }
+}
